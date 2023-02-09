@@ -108,6 +108,7 @@ public class Contact {
         System.out.print("Enter Email ID : ");
         email = input.next();
     }
+
     @Override
     public String toString() {
         return "Contact{" +
