@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 
 public class AddressBook {
     ArrayList<Contact> contacts = new ArrayList<>();
+
     public void getContactDetails(){
         System.out.println("Enter details : ");
         Contact person = new Contact();
@@ -22,9 +23,6 @@ public class AddressBook {
             contacts.add(person);
         }
     }
-
-
-
     public void editPersonDetails(){
         Scanner input1 = new Scanner(System.in);
         System.out.println("Enter name to edit : " ) ;
@@ -81,9 +79,10 @@ public class AddressBook {
         System.out.println("Enter name to delete : " );
         String name = input1.next();
         for (Contact person:contacts) {
-            Predicate<String> personName = str -> str.equals(person.getFirstName());
-            if(contacts.removeIf(contact -> personName.test(name))){
+            if(person.getFirstName().equals(name)){
+                contacts.remove(person);
                 System.out.println("Contact deleted successfully !!!");
+                return;
             }
         }
     }
@@ -92,6 +91,16 @@ public class AddressBook {
         for (Contact contact:contacts) {
             System.out.println(contact);
         }
+    }
+
+    public void searchByCityName(String cityName){
+        Predicate<Contact> contactPredicate = t -> t.getCity().equals(cityName);
+        contacts.stream().filter(contactPredicate).forEach(x -> System.out.println(x));
+    }
+
+    public void searchByStateName(String stateName){
+        Predicate<Contact> contactPredicate = t -> t.getCity().equals(stateName);
+        contacts.stream().filter(contactPredicate).forEach(x -> System.out.println(x));
     }
 
     @Override
