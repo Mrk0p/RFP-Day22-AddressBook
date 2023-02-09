@@ -89,9 +89,10 @@ public class Contact {
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
+
     public void getPersonDetails(){
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter First Name : ");
+        System.out.print("Enter First Name : ") ;
         firstName = input.next();
         System.out.print("Enter Lat Name : ");
         lastName = input.next();
@@ -108,7 +109,6 @@ public class Contact {
         System.out.print("Enter Email ID : ");
         email = input.next();
     }
-
     @Override
     public String toString() {
         return "Contact{" +
