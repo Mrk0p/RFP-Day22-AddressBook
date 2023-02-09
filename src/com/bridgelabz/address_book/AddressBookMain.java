@@ -100,7 +100,9 @@ public class AddressBookMain {
                         System.out.println("Enter name of city : ");
                         String cityName = input.next();
                         AddressBook addressBook = dictionary.get(addressBookName5);
-                        addressBook.searchByCityName(cityName) ;
+                        System.out.println("Enter a person's name : ");
+                        String personName = input.next();
+                        addressBook.searchByCityName(cityName,personName) ;
                     }
                     else {
                         System.out.println("Address Book does not exist");
@@ -113,7 +115,9 @@ public class AddressBookMain {
                         System.out.println("Enter name of State : ");
                         String stateName = input.next();
                         AddressBook addressBook = dictionary.get(addressBookName6);
-                        addressBook.searchByStateName(stateName) ;
+                        System.out.println("Enter a person's name : ");
+                        String personName = input.next();
+                        addressBook.searchByStateName(stateName,personName) ;
                     }
                     else {
                         System.out.println("Address Book does not exist");
@@ -122,6 +126,7 @@ public class AddressBookMain {
                 case 9 :
                     System.out.println("Exiting from dictionary");
                     break;
+
             }
         }while (option != 9);
     }
