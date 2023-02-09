@@ -6,13 +6,21 @@ import java.util.function.Predicate;
 
 public class AddressBook {
     ArrayList<Contact> contacts = new ArrayList<>();
-
-
     public void getContactDetails(){
         System.out.println("Enter details : ");
         Contact person = new Contact();
         person.getPersonDetails();
-        contacts.add(person);
+        int present = 0;
+        for (Contact contact :contacts) {
+            if (contact.getFirstName().equals(person.getFirstName())){
+                present = 1;
+                System.out.println("Person already exist");
+                break;
+            }
+        }
+        if (present==0){
+            contacts.add(person);
+        }
     }
 
 
@@ -79,11 +87,13 @@ public class AddressBook {
             }
         }
     }
+
     public void displayContact(){
         for (Contact contact:contacts) {
             System.out.println(contact);
         }
     }
+
     @Override
     public String toString() {
         return "AddressBook{" +

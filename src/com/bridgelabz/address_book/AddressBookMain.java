@@ -53,7 +53,7 @@ public class AddressBookMain {
                     String addressBookName2 = input.next();
                     if(dictionary.containsKey(addressBookName2)){
                         System.out.println(addressBookName2 + " Address book exist.");
-                        AddressBook addressBook = dictionary.get(addressBookName2);
+                        AddressBook addressBook = dictionary.get(addressBookName2) ;
                         addressBook.displayContact();
                     }
                     else {
