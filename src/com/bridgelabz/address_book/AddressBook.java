@@ -1,11 +1,15 @@
 package com.bridgelabz.address_book;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.function.Predicate;
 
 public class AddressBook {
     ArrayList<Contact> contacts = new ArrayList<>();
+    HashMap<String,Contact> contactHashMap = new HashMap<>();
+
+    HashMap<String,Contact> contactHashMap2 = new HashMap<>();
 
     public void getContactDetails(){
         System.out.println("Enter details : ");
@@ -23,6 +27,9 @@ public class AddressBook {
             contacts.add(person);
         }
     }
+
+
+
     public void editPersonDetails(){
         Scanner input1 = new Scanner(System.in);
         System.out.println("Enter name to edit : " ) ;
@@ -94,13 +101,25 @@ public class AddressBook {
     }
 
     public void searchByCityName(String cityName){
+        for (Contact contact : contacts) {
+            if(contact.getCity().equals(cityName)){
+                contactHashMap.put(cityName,contact);
+            }
+        }
         Predicate<Contact> contactPredicate = t -> t.getCity().equals(cityName);
         contacts.stream().filter(contactPredicate).forEach(x -> System.out.println(x));
+        System.out.println(contactHashMap.keySet());
     }
 
     public void searchByStateName(String stateName){
-        Predicate<Contact> contactPredicate = t -> t.getCity().equals(stateName);
+        for (Contact contact : contacts) {
+            if(contact.getState().equals(stateName)){
+                contactHashMap2.put(stateName,contact);
+            }
+        }
+        Predicate<Contact> contactPredicate = t -> t.getState().equals(stateName);
         contacts.stream().filter(contactPredicate).forEach(x -> System.out.println(x));
+        System.out.println(contactHashMap2.keySet());
     }
 
     @Override
