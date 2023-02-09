@@ -19,7 +19,6 @@ public class AddressBookMain {
             option = input.nextInt();
 
             switch (option){
-
                 case 1 :
                     AddressBook addressBook = new AddressBook();
                     addressBook.getContact();
@@ -33,23 +32,32 @@ public class AddressBookMain {
                     while (iterator.hasNext()){
                         addressBook = iterator.next();
                         if(name.equals(addressBook.person.getFirstName())){
-                            System.out.println(book);
                             addressBook.editPersonDetails();
                             iterator.set(addressBook);
                         }
                     }
                     System.out.println(book);
-
                     break;
                 case 3 :
                     System.out.println("Displaying Array : ");
                     System.out.println(book);
                     break;
                 case 4 :
+                    System.out.println("Enter a name");
+                    String name1 = input.next();
+                    ListIterator<AddressBook> iterator1 = book.listIterator();
+                    while (iterator1.hasNext()){
+                        addressBook = iterator1.next();
+                        if(name1.equals(addressBook.person.getFirstName())){
+                            iterator1.remove();
+                        }
+                    }
+                    break;
+                case 5 :
                     System.out.println("Exiting from book");
                     break;
-
             }
         }while (option != 4);
     }
 }
+

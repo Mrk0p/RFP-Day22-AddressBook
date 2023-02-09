@@ -10,7 +10,6 @@ public class AddressBook {
         System.out.println("Enter details : ");
         person.getPersonDetails();
     }
-
     public void editPersonDetails(){
 
         Scanner input1 = new Scanner(System.in);
